@@ -1,62 +1,36 @@
-Any contribution is very much welcome!
-Skill published in clawhub https://www.clawhub.ai/rknoche6/fast-browser-use
+# fast-browser-use — Rust-powered browser automation at native speed
 
-# browser-use
+> A Rust-based browser automation engine driving Chrome directly via CDP — up to 10x faster than Puppeteer. Built for speed, stealth, and high-volume automation.
 
-A lightweight Rust library for browser automation via Chrome DevTools Protocol (CDP).
+[![OpenClaw Skill](https://img.shields.io/badge/OpenClaw-Skill-blueviolet)](https://github.com/NachaFromMars)
 
-## ✨ Highlights
-
-- **Zero Node.js dependency** - Pure Rust implementation directly controlling browsers via CDP
-- **Lightweight & Fast** - No heavy runtime, minimal overhead
-- **MCP Integration** - Built-in Model Context Protocol server for AI-driven automation
-- **Simple API** - Easy-to-use tools for common browser operations
-
-## Installation
-
-```bash
-cargo add browser-use
-```
-
-## Styling
-
-```bash
-cargo +nightly fmt
-```
-
-## Quick Start
-
-```rust
-use browser_use::browser::BrowserSession;
-
-// Launch browser and navigate
-let session = BrowserSession::launch(Default::default())?;
-session.navigate("https://example.com", None)?;
-
-// Extract DOM with indexed interactive elements
-let dom = session.extract_dom()?;
-```
-
-## MCP Server
-
-Run the built-in MCP server for AI-driven automation:
-
-```bash
-# Headless mode
-cargo run --bin mcp-server
-
-# Visible browser
-cargo run --bin mcp-server -- --headed
-```
+## Overview
+fast-browser-use controls Chrome through the Chrome DevTools Protocol using a compiled Rust binary, eliminating the Node.js overhead that slows down Puppeteer. Built-in recipes handle bot-detection bypass (mouse jitter + random delays), form filling, and data scraping. A strong fit for high-volume tasks where both latency and detection resistance matter.
 
 ## Features
+- **~10x faster than Puppeteer** — Rust binary, direct CDP, no Node overhead
+- **Bot-detection bypass** — mouse jitter and randomized delays
+- **Form filling** — automated input recipes
+- **Scraping** — structured data extraction workflows
+- **Cross-platform** — macOS and Linux
 
-- Navigate, click, input, screenshot, extract content
-- DOM extraction with indexed interactive elements
-- CSS selector or numeric index-based element targeting
-- Thread-safe browser session management
+## Usage / Quick Start
+```bash
+# Install
+brew install rknoche6/tap/fast-browser-use
+# or
+cargo install fast-browser-use
 
-## Requirements
+# Required env
+export CHROME_PATH="/path/to/chrome"
+```
 
-- Rust 1.70+
-- Chrome or Chromium installed
+## Trigger Keywords (OpenClaw)
+fast browser, Rust browser automation, CDP browser, fast-browser-use
+
+## Related Skills
+- [browser-use](https://github.com/NachaFromMars/browser-use) — full-featured Python browser automation
+- [agent-browser](https://github.com/NachaFromMars/agent-browser) — snapshot-driven browser CLI
+
+---
+Part of the [NachaFromMars](https://github.com/NachaFromMars) OpenClaw skill ecosystem.
